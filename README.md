@@ -8,8 +8,6 @@ A modern, minimal Kanban board web application for managing tasks with drag-and-
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-**Live Demo:** [taskflow-nine-rust.vercel.app](https://taskflow-nine-rust.vercel.app)
-
 ---
 
 ## Features
@@ -206,6 +204,10 @@ See the [Docker](#docker) section above. Mount a volume to `db/` to ensure task 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Created with ❤️ by [Yahya](https://github.com/yahyazoom17)
 
 ---
 

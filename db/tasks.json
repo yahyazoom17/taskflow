@@ -1,54 +1,28 @@
 [
   {
-    "id": "task-6",
-    "title": "Mobile responsive polish",
-    "description": "Fine-tune layouts and interactions for mobile viewports.",
+    "id": "task-1",
+    "title": "Start your day",
+    "description": "start your day by checking your tasks",
     "status": "todo",
     "priority": "high",
     "dueDate": "2026-05-18",
     "createdAt": "2026-05-06T16:00:00.000Z"
   },
   {
-    "id": "task-5",
-    "title": "Performance audit",
-    "description": "Run Lighthouse and optimize bundle size, lazy loading, and caching strategies.",
-    "status": "in-progress",
-    "priority": "low",
-    "createdAt": "2026-05-05T08:00:00.000Z"
-  },
-  {
     "id": "task-2",
-    "title": "Build authentication flow",
-    "description": "Implement user login and registration with OAuth providers.",
+    "title": "Work on assigned tasks",
+    "description": "work on the tasks assigned to you",
     "status": "in-progress",
-    "priority": "high",
-    "dueDate": "2026-05-15",
-    "createdAt": "2026-05-02T09:00:00.000Z"
-  },
-  {
-    "id": "task-1",
-    "title": "Design system setup completed",
-    "description": "Configure the Apple-inspired design tokens for the project including colors, typography, and spacing.",
-    "status": "completed",
-    "priority": "high",
-    "dueDate": "2026-05-10",
-    "createdAt": "2026-05-01T10:00:00.000Z"
+    "priority": "medium",
+    "createdAt": "2026-05-06T16:00:00.000Z"
   },
   {
     "id": "task-3",
-    "title": "Create API endpoints",
-    "description": "Set up RESTful API routes for CRUD operations on tasks.",
-    "status": "completed",
-    "priority": "medium",
-    "createdAt": "2026-05-03T14:30:00.000Z"
-  },
-  {
-    "id": "task-4",
-    "title": "Write unit tests",
-    "description": "Add comprehensive test coverage for core business logic.",
-    "status": "todo",
-    "priority": "medium",
-    "dueDate": "2026-05-20",
-    "createdAt": "2026-05-04T11:00:00.000Z"
+    "title": "Review and plan for tomorrow",
+    "description": "review your completed tasks and plan for tomorrow",
+    "status": "in-progress",
+    "priority": "low",
+    "dueDate": "2026-05-18",
+    "createdAt": "2026-05-06T16:00:00.000Z"
   }
 ]

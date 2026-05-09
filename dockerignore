@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Next.js build output
+.next
+out
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Version control
+.git
+.gitignore
+
+# Editor & OS files
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
+
+# Documentation
+README.md
+CLAUDE.md
+AGENTS.md
+DESIGN.md
+PROMPT.md
+
+# Docker files (avoid recursion)
+Dockerfile
+.dockerignore

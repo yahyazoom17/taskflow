@@ -1,131 +1,119 @@
-# TaskFlow
+<!-- TaskFlow - Modern Kanban Board -->
+<p align="center">
+  <img src="./public/brand.png" alt="TaskFlow" width="80" height="80" />
+</p>
 
-A modern, minimal Kanban board web application for managing tasks with drag-and-drop, built with Next.js 15+ and React 19.
+<h1 align="center">TaskFlow</h1>
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)
-![License](https://img.shields.io/badge/License-MIT-green)
+<p align="center">
+  A minimal, beautiful Kanban board for managing tasks with fluid drag-and-drop, built with Next.js 16 and React 19.
+</p>
 
----
-
-## Features
-
-- **Drag & Drop** — Move tasks between columns and reorder within columns using `@dnd-kit`
-- **Full CRUD** — Create, edit, and delete tasks via a clean modal dialog
-- **Persistent Storage** — Tasks are auto-saved to a local JSON file instantly
-- **Search & Filter** — Find tasks quickly by keyword or filter by priority/status
-- **Priority Badges** — Visual indicators for task urgency (Low, Medium, High)
-- **Due Dates** — Assign and track deadlines per task
-- **Dark Mode** — System-aware theme with a manual toggle
-- **Toast Notifications** — Feedback on every action via `sonner`
-- **Optimistic UI** — Instant updates without waiting for the server
-- **Keyboard Accessible** — Full keyboard support for drag-and-drop
-- **Responsive Design** — Works across desktop and mobile viewports
+<p align="center">
+  <a href="https://github.com/yahyazoom17/taskflow">
+    <img src="https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=github" alt="GitHub" />
+  </a>
+  <a href="https://vercel.com">
+    <img src="https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel" alt="Deploy on Vercel" />
+  </a>
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License" />
+  <img src="https://img.shields.io/badge/Next.js-16-black?logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react" alt="React" />
+</p>
 
 ---
 
-## Tech Stack
+## ✨ Features
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router) |
-| UI Library | React 19 |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS 4 |
-| Components | shadcn/ui + Radix UI |
-| Drag & Drop | @dnd-kit/core, @dnd-kit/sortable |
-| Icons | Lucide React |
-| Theming | next-themes |
-| Notifications | Sonner |
-| Database | Local JSON file (`db/tasks.json`) via Node.js `fs/promises` |
+| Feature | Description |
+|---------|-------------|
+| **Drag & Drop** | Move tasks between columns and reorder with intuitive drag-and-drop powered by @dnd-kit |
+| **Full CRUD** | Create, edit, and delete tasks through a clean modal dialog |
+| **Persistent Storage** | Tasks auto-save to a local JSON file — your data is always safe |
+| **Search** | Find tasks instantly by keyword |
+| **Priority Badges** | Visual urgency indicators with Low, Medium, and High labels |
+| **Due Dates** | Assign and track deadlines with a built-in date picker |
+| **Dark Mode** | System-aware theme with manual toggle — works perfectly in any environment |
+| **Toast Notifications** | Instant feedback on every action via Sonner |
+| **Optimistic UI** | Lightning-fast updates — no waiting for the server |
+| **Keyboard Accessible** | Full keyboard navigation for drag-and-drop |
+| **Responsive Design** | Flawless on desktop, tablet, and mobile |
 
 ---
 
-## Project Structure
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/yahyazoom17/taskflow.git
+cd taskflow
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) — the landing page will guide you to the board.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript 5
+- **UI Library:** React 19
+- **Styling:** Tailwind CSS 4 + shadcn/ui
+- **Drag & Drop:** @dnd-kit
+- **Icons:** Lucide React
+- **Theming:** next-themes
+- **Notifications:** Sonner
+- **Database:** Local JSON file (`db/tasks.json`)
+
+---
+
+## 📁 Project Structure
 
 ```
 taskflow/
 ├── app/
-│   ├── api/
-│   │   └── tasks/
-│   │       ├── route.ts          # GET all tasks, POST new task
-│   │       └── [id]/
-│   │           └── route.ts      # PATCH, DELETE task by id
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
+│   ├── board/              # Kanban board page
+│   │   ├── page.tsx        # Server component (fetches tasks)
+│   │   ├── loading.tsx    # Loading skeleton
+│   │   └── kanban-board-client.tsx  # Client component (DnD logic)
+│   ├── loading.tsx         # Landing page loading state
+│   ├── layout.tsx          # Root layout with providers
+│   └── page.tsx            # Landing page
 │
 ├── components/
-│   ├── board/
-│   │   ├── board.tsx             # Root board with DnD context
-│   │   ├── column.tsx            # Kanban column (droppable)
-│   │   ├── task-card.tsx         # Draggable task card
-│   │   ├── task-dialog.tsx       # Create / edit modal
-│   │   ├── board-header.tsx      # Search, filter, and controls
-│   │   └── empty-state.tsx       # Placeholder for empty columns
-│   ├── theme/
-│   │   ├── theme-provider.tsx
-│   │   └── theme-toggle.tsx
-│   └── ui/                       # shadcn/ui components
-│
-├── db/
-│   └── tasks.json                # Persistent task store
+│   ├── kanban-board.tsx    # Main board component
+│   ├── kanban-column.tsx   # Column (droppable)
+│   ├── task-card.tsx       # Task card (draggable)
+│   ├── task-dialog.tsx    # Create/edit modal
+│   ├── search-bar.tsx      # Search component
+│   ├── theme-toggle.tsx    # Dark mode toggle
+│   ├── github-icon.tsx     # GitHub icon
+│   └── ui/                 # shadcn/ui primitives
 │
 ├── lib/
-│   ├── db.ts                     # File-based DB read/write helpers
-│   ├── types.ts                  # Shared TypeScript types
-│   ├── utils.ts                  # Utility functions
-│   └── constants.ts              # Column definitions, priorities
+│   ├── actions.ts          # Server actions (CRUD)
+│   ├── db.ts              # JSON file read/write
+│   ├── types.ts           # TypeScript types
+│   └── utils.ts           # Utilities
 │
-├── public/
-├── Dockerfile
-├── .dockerignore
-├── next.config.ts
-├── package.json
-└── tsconfig.json
+├── db/
+│   └── tasks.json          # Persistent task storage
+│
+└── public/
+    └── brand.png           # App logo
 ```
 
 ---
 
-## Getting Started
+## 🐳 Docker
 
-### Prerequisites
-
-- **Node.js** 20+
-- **npm** 9+
-
-### Local Development
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/yahyazoom17/taskflow.git
-cd taskflow
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Build
-
-```bash
-npm run build
-npm run start
-```
-
----
-
-## Docker
-
-A multi-stage `Dockerfile` is included for containerised deployments.
-
-### Build and Run
+### Build & Run
 
 ```bash
 # Build the image
@@ -135,17 +123,14 @@ docker build -t taskflow .
 docker run -p 3000:3000 taskflow
 ```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
-
-### Persisting Task Data
-
-The task database lives at `db/tasks.json` inside the container. To preserve data across container restarts, mount a named volume:
+### Persist Data
 
 ```bash
+# Mount a volume to keep tasks across restarts
 docker run -p 3000:3000 -v taskflow_db:/app/db taskflow
 ```
 
-### Docker Compose (optional)
+### Docker Compose
 
 ```yaml
 services:
@@ -163,52 +148,38 @@ volumes:
 
 ---
 
-## API Reference
-
-The app exposes a minimal REST API under `/api/tasks`.
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/tasks` | Fetch all tasks |
-| `POST` | `/api/tasks` | Create a new task |
-| `PATCH` | `/api/tasks/[id]` | Update a task (status, content, priority, etc.) |
-| `DELETE` | `/api/tasks/[id]` | Delete a task by ID |
-
----
-
-## Available Scripts
-
-| Script | Description |
-|---|---|
-| `npm run dev` | Start the development server with hot reload |
-| `npm run build` | Create an optimised production build |
-| `npm run start` | Start the production server |
-| `npm run lint` | Run ESLint |
-
----
-
-## Deployment
+## 🌐 Deployment
 
 ### Vercel (Recommended)
 
-This project is optimised for Vercel. Push to your GitHub repo and import the project at [vercel.com/new](https://vercel.com/new).
+1. Push your code to GitHub
+2. Import at [vercel.com/new](https://vercel.com/new)
+3. Deploy — done!
 
-> **Note:** Vercel runs serverless functions, so the file-system database (`db/tasks.json`) will reset on each deployment. For persistent storage in production, consider migrating to a database like [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres), [PlanetScale](https://planetscale.com), or [Supabase](https://supabase.com).
+> ⚠️ **Note:** Vercel's serverless functions reset the file system on each deployment. For production, migrate to a database like [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres), [Supabase](https://supabase.com), or [PlanetScale](https://planetscale.com).
 
-### Docker / Self-hosted
+### Self-Hosted
 
-See the [Docker](#docker) section above. Mount a volume to `db/` to ensure task data persists across deploys.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+Use the Docker setup above, or deploy to any Node.js host.
 
 ---
 
-Created with ❤️ by [Yahya](https://github.com/yahyazoom17)
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues, submit PRs, or suggest features.
 
 ---
 
-*Inspired by [Linear](https://linear.app), [Notion](https://notion.so), and [Trello](https://trello.com).*
+## 📄 License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  Built with ❤️ by <a href="https://github.com/yahyazoom17">Yahya</a>
+</p>
+
+<p align="center">
+  <sub>Inspired by <a href="https://linear.app">Linear</a>, <a href="https://notion.so">Notion</a>, and <a href="https://trello.com">Trello</a></sub>
+</p>

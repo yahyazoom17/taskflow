@@ -167,3 +167,23 @@
 .dark ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.6 0 0 / 40%);
 }
+
+/* Review carousel animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll {
+    animation: none;
+  }
+}
